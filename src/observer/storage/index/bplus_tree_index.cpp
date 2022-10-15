@@ -14,6 +14,8 @@ See the Mulan PSL v2 for more details. */
 
 #include "storage/index/bplus_tree_index.h"
 #include "common/log/log.h"
+#include "storage/default/disk_buffer_pool.h"
+#include "storage/common/meta_util.h"
 
 BplusTreeIndex::~BplusTreeIndex() noexcept
 {
@@ -47,6 +49,7 @@ RC BplusTreeIndex::create(const char *file_name, const IndexMeta &index_meta, co
       "Successfully create index, file_name:%s, index:%s, field:%s", file_name, index_meta.name(), index_meta.field());
   return RC::SUCCESS;
 }
+
 
 RC BplusTreeIndex::open(const char *file_name, const IndexMeta &index_meta, const FieldMeta &field_meta)
 {

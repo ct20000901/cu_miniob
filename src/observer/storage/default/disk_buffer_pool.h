@@ -220,6 +220,8 @@ public:
    */
   RC create_file(const char *file_name);
 
+  RC remove_file(const char *file_name);
+
   /**
    * 根据文件名打开一个分页文件
    */
@@ -318,6 +320,7 @@ public:
   ~BufferPoolManager();
 
   RC create_file(const char *file_name);
+  RC remove_file(const char *file_name);
   RC open_file(const char *file_name, DiskBufferPool *&bp);
   RC close_file(const char *file_name);
 
