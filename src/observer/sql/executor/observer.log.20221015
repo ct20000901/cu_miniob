@@ -787,3 +787,215 @@ ThreadPools=SQLThreads,IOThreads,D
 [2022-10-15 22:14:46 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0
 [2022-10-15 22:14:46 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0
 [2022-10-15 22:14:46 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0
+[2022-10-15 22:15:45 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:15:45 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0
+[2022-10-15 22:15:45 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0
+[2022-10-15 22:15:45 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0
+[2022-10-15 22:16:45 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:16:45 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0
+[2022-10-15 22:16:45 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0
+[2022-10-15 22:16:45 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0
+[2022-10-15 22:17:45 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:17:45 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0
+[2022-10-15 22:17:45 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0
+[2022-10-15 22:17:45 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0
+[2022-10-15 22:18:45 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:18:45 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0
+[2022-10-15 22:18:45 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0
+[2022-10-15 22:18:45 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0
+[2022-10-15 22:19:45 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:19:45 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0
+[2022-10-15 22:19:45 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0
+[2022-10-15 22:19:45 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0
+[2022-10-15 22:20:45 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:20:45 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0
+[2022-10-15 22:20:45 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0
+[2022-10-15 22:20:45 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0
+[2022-10-15 22:21:45 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:21:45 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0
+[2022-10-15 22:21:45 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0
+[2022-10-15 22:21:45 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0
+[2022-10-15 22:22:45 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:22:45 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0
+[2022-10-15 22:22:45 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0
+[2022-10-15 22:22:45 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0
+[2022-10-15 22:23:45 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:23:45 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0
+[2022-10-15 22:23:45 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0
+[2022-10-15 22:23:45 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0
+[2022-10-15 22:24:45 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:24:45 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0
+[2022-10-15 22:24:45 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0
+[2022-10-15 22:24:45 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0
+[2022-10-15 22:25:45 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:25:45 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0
+[2022-10-15 22:25:45 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0
+[2022-10-15 22:25:45 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0
+[2022-10-15 22:26:45 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:26:45 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0
+[2022-10-15 22:26:45 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0
+[2022-10-15 22:26:45 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0
+[2022-10-15 22:27:45 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:27:45 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0
+[2022-10-15 22:27:45 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0
+[2022-10-15 22:27:45 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0
+[2022-10-15 22:28:45 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:28:45 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0
+[2022-10-15 22:28:45 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0
+[2022-10-15 22:28:45 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0
+[2022-10-15 22:29:45 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:29:45 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0
+[2022-10-15 22:29:45 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0
+[2022-10-15 22:29:45 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0
+[2022-10-15 22:30:45 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:30:45 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0
+[2022-10-15 22:30:45 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0
+[2022-10-15 22:30:45 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0
+[2022-10-15 22:31:45 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:31:45 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0
+[2022-10-15 22:31:45 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0
+[2022-10-15 22:31:45 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0
+[2022-10-15 22:32:45 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:32:45 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0
+[2022-10-15 22:32:45 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0
+[2022-10-15 22:32:45 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0
+[2022-10-15 22:33:27 pid:16847 tid:7ffff7fe9740  INFO: server.cpp accept 273]>>Accepted connection from 127.0.0.1:30425
+
+[2022-10-15 22:33:36 pid:16847 tid:7ffff7fe9740  INFO: server.cpp recv 177]>>receive command(size=44): create table student(id int,name char(20));
+[2022-10-15 22:33:36 pid:16847 tid:7fffe497e700  WARNNING: stmt.cpp create_stmt 37]>>unknown query command
+[2022-10-15 22:33:36 pid:16847 tid:7fffe497e700  INFO: table.cpp create 61]>>Begin to create table ./miniob/db/sys:student
+[2022-10-15 22:33:36 pid:16847 tid:7fffe497e700  INFO: field_meta.cpp init 69]>>Init a field with name=id
+[2022-10-15 22:33:36 pid:16847 tid:7fffe497e700  INFO: field_meta.cpp init 69]>>Init a field with name=name
+[2022-10-15 22:33:36 pid:16847 tid:7fffe497e700  INFO: table_meta.cpp init 97]>>Sussessfully initialized table meta. table name=student
+[2022-10-15 22:33:36 pid:16847 tid:7fffe497e700  INFO: disk_buffer_pool.cpp create_file 617]>>Successfully create ./miniob/db/sys/student.data.
+[2022-10-15 22:33:36 pid:16847 tid:7fffe497e700  INFO: disk_buffer_pool.cpp open_file 188]>>Successfully open file ./miniob/db/sys/student.data.
+[2022-10-15 22:33:36 pid:16847 tid:7fffe497e700  INFO: disk_buffer_pool.cpp open_file 217]>>Successfully open ./miniob/db/sys/student.data. file_desc=10, hdr_frame=0x7ffff5003028
+[2022-10-15 22:33:36 pid:16847 tid:7fffe497e700  INFO: record_manager.cpp init 267]>>open record file handle done. rc=SUCCESS
+[2022-10-15 22:33:36 pid:16847 tid:7fffe497e700  INFO: table.cpp create 117]>>Successfully create table ./miniob/db/sys:student
+[2022-10-15 22:33:36 pid:16847 tid:7fffe497e700  INFO: db.cpp create_table 75]>>Create table success. table name=student
+[2022-10-15 22:33:42 pid:16847 tid:7ffff7fe9740  INFO: server.cpp recv 177]>>receive command(size=20): drop table student;
+[2022-10-15 22:33:42 pid:16847 tid:7fffdffff700  WARNNING: stmt.cpp create_stmt 37]>>unknown query command
+[2022-10-15 22:33:42 pid:16847 tid:7fffdffff700  INFO: disk_buffer_pool.cpp close_file 241]>>Successfully close file 10:./miniob/db/sys/student.data.
+[2022-10-15 22:33:42 pid:16847 tid:7fffdffff700  WARNNING: disk_buffer_pool.cpp close_file 672]>>file has not opened: ./miniob/db/sys/student.data
+[2022-10-15 22:33:42 pid:16847 tid:7fffdffff700  INFO: disk_buffer_pool.cpp ~DiskBufferPool 178]>>Exit
+[2022-10-15 22:33:49 pid:16847 tid:7fffdffff700  INFO: disk_buffer_pool.cpp remove_file 634]>>Successfully remove  .
+[2022-10-15 22:33:49 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:33:49 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0.03125
+[2022-10-15 22:33:49 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:5,tps:0.015625
+[2022-10-15 22:33:49 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0.03125
+[2022-10-15 22:33:53 pid:16847 tid:7fffdffff700  INFO: table.cpp ~Table 50]>>Table has been closed: student
+[2022-10-15 22:33:56 pid:16847 tid:7ffff7fe9740  INFO: server.cpp recv 177]>>receive command(size=44): create table student(id int,name char(20));
+[2022-10-15 22:33:56 pid:16847 tid:7fffe517f700  WARNNING: stmt.cpp create_stmt 37]>>unknown query command
+[2022-10-15 22:33:56 pid:16847 tid:7fffe517f700  INFO: table.cpp create 61]>>Begin to create table ./miniob/db/sys:student
+[2022-10-15 22:33:56 pid:16847 tid:7fffe517f700  INFO: field_meta.cpp init 69]>>Init a field with name=id
+[2022-10-15 22:33:56 pid:16847 tid:7fffe517f700  INFO: field_meta.cpp init 69]>>Init a field with name=name
+[2022-10-15 22:33:56 pid:16847 tid:7fffe517f700  INFO: table_meta.cpp init 97]>>Sussessfully initialized table meta. table name=student
+[2022-10-15 22:33:56 pid:16847 tid:7fffe517f700  INFO: disk_buffer_pool.cpp create_file 617]>>Successfully create ./miniob/db/sys/student.data.
+[2022-10-15 22:33:56 pid:16847 tid:7fffe517f700  INFO: disk_buffer_pool.cpp open_file 188]>>Successfully open file ./miniob/db/sys/student.data.
+[2022-10-15 22:33:56 pid:16847 tid:7fffe517f700  INFO: disk_buffer_pool.cpp open_file 217]>>Successfully open ./miniob/db/sys/student.data. file_desc=10, hdr_frame=0x7ffff5007040
+[2022-10-15 22:33:56 pid:16847 tid:7fffe517f700  INFO: record_manager.cpp init 267]>>open record file handle done. rc=SUCCESS
+[2022-10-15 22:33:56 pid:16847 tid:7fffe517f700  INFO: table.cpp create 117]>>Successfully create table ./miniob/db/sys:student
+[2022-10-15 22:33:56 pid:16847 tid:7fffe517f700  INFO: db.cpp create_table 75]>>Create table success. table name=student
+[2022-10-15 22:34:12 pid:16847 tid:7ffff7fe9740  INFO: server.cpp recv 177]>>receive command(size=36):  insert into student values(1,'20')
+[2022-10-15 22:34:14 pid:16847 tid:7ffff7fe9740  INFO: server.cpp recv 177]>>receive command(size=37):  insert into student values(1,'20');
+[2022-10-15 22:34:19 pid:16847 tid:7ffff7fe9740  INFO: server.cpp recv 177]>>receive command(size=37):  insert into student values(2,'20');
+[2022-10-15 22:34:27 pid:16847 tid:7ffff7fe9740  INFO: server.cpp recv 177]>>receive command(size=23): select * from student;
+[2022-10-15 22:34:27 pid:16847 tid:7fffe497e700  INFO: select_stmt.cpp create 125]>>got 1 tables in from stmt and 2 fields in query stmt
+[2022-10-15 22:34:34 pid:16847 tid:7ffff7fe9740  INFO: server.cpp recv 177]>>receive command(size=20): drop table student;
+[2022-10-15 22:34:34 pid:16847 tid:7fffdffff700  WARNNING: stmt.cpp create_stmt 37]>>unknown query command
+[2022-10-15 22:34:34 pid:16847 tid:7fffdffff700  INFO: disk_buffer_pool.cpp close_file 241]>>Successfully close file 10:./miniob/db/sys/student.data.
+[2022-10-15 22:34:34 pid:16847 tid:7fffdffff700  WARNNING: disk_buffer_pool.cpp close_file 672]>>file has not opened: ./miniob/db/sys/student.data
+[2022-10-15 22:34:34 pid:16847 tid:7fffdffff700  INFO: disk_buffer_pool.cpp ~DiskBufferPool 178]>>Exit
+[2022-10-15 22:34:34 pid:16847 tid:7fffdffff700  INFO: disk_buffer_pool.cpp remove_file 634]>>Successfully remove €.
+[2022-10-15 22:34:34 pid:16847 tid:7fffdffff700  INFO: table.cpp ~Table 50]>>Table has been closed: student
+[2022-10-15 22:34:43 pid:16847 tid:7ffff7fe9740  INFO: server.cpp recv 177]>>receive command(size=23): select * from student;
+[2022-10-15 22:34:43 pid:16847 tid:7fffe517f700  WARNNING: select_stmt.cpp create 58]>>no such table. db=sys, table_name=student
+[2022-10-15 22:34:43 pid:16847 tid:7fffe517f700  WARNNING: resolve_stage.cpp handle_event 108]>>failed to create stmt. rc=1046:SCHEMA_TABLE_NOT_EXIST
+[2022-10-15 22:34:49 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:34:49 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0.118644
+[2022-10-15 22:34:49 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:1371.12,tps:0.135593
+[2022-10-15 22:34:49 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0.271186
+[2022-10-15 22:34:56 pid:16847 tid:7ffff7fe9740  INFO: server.cpp recv 177]>>receive command(size=20): drop table student;
+[2022-10-15 22:34:56 pid:16847 tid:7fffe497e700  WARNNING: stmt.cpp create_stmt 37]>>unknown query command
+[2022-10-15 22:34:56 pid:16847 tid:7fffe497e700  WARNNING: db.cpp drop_table 83]>>student is not exist.
+[2022-10-15 22:35:49 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:35:49 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0.0169492
+[2022-10-15 22:35:49 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0.0169492
+[2022-10-15 22:35:49 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0.0338983
+[2022-10-15 22:36:45 pid:16847 tid:7ffff7fe9740  INFO: server.cpp recv 177]>>receive command(size=33): create table t(id int, age int);
+[2022-10-15 22:36:45 pid:16847 tid:7fffdffff700  WARNNING: stmt.cpp create_stmt 37]>>unknown query command
+[2022-10-15 22:36:45 pid:16847 tid:7fffdffff700  INFO: table.cpp create 61]>>Begin to create table ./miniob/db/sys:t
+[2022-10-15 22:36:45 pid:16847 tid:7fffdffff700  INFO: field_meta.cpp init 69]>>Init a field with name=id
+[2022-10-15 22:36:45 pid:16847 tid:7fffdffff700  INFO: field_meta.cpp init 69]>>Init a field with name=age
+[2022-10-15 22:36:45 pid:16847 tid:7fffdffff700  INFO: table_meta.cpp init 97]>>Sussessfully initialized table meta. table name=t
+[2022-10-15 22:36:45 pid:16847 tid:7fffdffff700  INFO: disk_buffer_pool.cpp create_file 617]>>Successfully create ./miniob/db/sys/t.data.
+[2022-10-15 22:36:45 pid:16847 tid:7fffdffff700  INFO: disk_buffer_pool.cpp open_file 188]>>Successfully open file ./miniob/db/sys/t.data.
+[2022-10-15 22:36:45 pid:16847 tid:7fffdffff700  INFO: disk_buffer_pool.cpp open_file 217]>>Successfully open ./miniob/db/sys/t.data. file_desc=10, hdr_frame=0x7ffff500f070
+[2022-10-15 22:36:45 pid:16847 tid:7fffdffff700  INFO: record_manager.cpp init 267]>>open record file handle done. rc=SUCCESS
+[2022-10-15 22:36:45 pid:16847 tid:7fffdffff700  INFO: table.cpp create 117]>>Successfully create table ./miniob/db/sys:t
+[2022-10-15 22:36:45 pid:16847 tid:7fffdffff700  INFO: db.cpp create_table 75]>>Create table success. table name=t
+[2022-10-15 22:36:45 pid:16847 tid:7ffff7fe9740  INFO: server.cpp recv 177]>>receive command(size=35): create table t(id int, name char);
+[2022-10-15 22:36:45 pid:16847 tid:7fffe517f700  WARNNING: stmt.cpp create_stmt 37]>>unknown query command
+[2022-10-15 22:36:45 pid:16847 tid:7fffe517f700  WARNNING: db.cpp create_table 60]>>t has been opened before.
+[2022-10-15 22:36:45 pid:16847 tid:7ffff7fe9740  INFO: server.cpp recv 177]>>receive command(size=14): drop table t;
+[2022-10-15 22:36:45 pid:16847 tid:7fffe497e700  WARNNING: stmt.cpp create_stmt 37]>>unknown query command
+[2022-10-15 22:36:45 pid:16847 tid:7fffe497e700  INFO: disk_buffer_pool.cpp close_file 241]>>Successfully close file 10:./miniob/db/sys/t.data.
+[2022-10-15 22:36:45 pid:16847 tid:7fffe497e700  WARNNING: disk_buffer_pool.cpp close_file 672]>>file has not opened: ./miniob/db/sys/t.data
+[2022-10-15 22:36:45 pid:16847 tid:7fffe497e700  INFO: disk_buffer_pool.cpp ~DiskBufferPool 178]>>Exit
+[2022-10-15 22:36:45 pid:16847 tid:7fffe497e700  INFO: disk_buffer_pool.cpp remove_file 634]>>Successfully remove P;.
+[2022-10-15 22:36:45 pid:16847 tid:7fffe497e700  INFO: table.cpp ~Table 50]>>Table has been closed: t
+[2022-10-15 22:36:49 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:36:49 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0.0508475
+[2022-10-15 22:36:49 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0.0508475
+[2022-10-15 22:36:49 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0.101695
+[2022-10-15 22:36:49 pid:16847 tid:7ffff7fe9740  INFO: server.cpp recv 177]>>receive command(size=35): create table t(id int, name char);
+[2022-10-15 22:36:49 pid:16847 tid:7fffdffff700  WARNNING: stmt.cpp create_stmt 37]>>unknown query command
+[2022-10-15 22:36:49 pid:16847 tid:7fffdffff700  INFO: table.cpp create 61]>>Begin to create table ./miniob/db/sys:t
+[2022-10-15 22:36:49 pid:16847 tid:7fffdffff700  INFO: field_meta.cpp init 69]>>Init a field with name=id
+[2022-10-15 22:36:49 pid:16847 tid:7fffdffff700  INFO: field_meta.cpp init 69]>>Init a field with name=name
+[2022-10-15 22:36:49 pid:16847 tid:7fffdffff700  INFO: table_meta.cpp init 97]>>Sussessfully initialized table meta. table name=t
+[2022-10-15 22:36:49 pid:16847 tid:7fffdffff700  INFO: disk_buffer_pool.cpp create_file 617]>>Successfully create ./miniob/db/sys/t.data.
+[2022-10-15 22:36:49 pid:16847 tid:7fffdffff700  INFO: disk_buffer_pool.cpp open_file 188]>>Successfully open file ./miniob/db/sys/t.data.
+[2022-10-15 22:36:49 pid:16847 tid:7fffdffff700  INFO: disk_buffer_pool.cpp open_file 217]>>Successfully open ./miniob/db/sys/t.data. file_desc=10, hdr_frame=0x7ffff5013088
+[2022-10-15 22:36:49 pid:16847 tid:7fffdffff700  INFO: record_manager.cpp init 267]>>open record file handle done. rc=SUCCESS
+[2022-10-15 22:36:49 pid:16847 tid:7fffdffff700  INFO: table.cpp create 117]>>Successfully create table ./miniob/db/sys:t
+[2022-10-15 22:36:49 pid:16847 tid:7fffdffff700  INFO: db.cpp create_table 75]>>Create table success. table name=t
+[2022-10-15 22:37:49 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:37:49 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0.0169492
+[2022-10-15 22:37:49 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:1,tps:0.0169492
+[2022-10-15 22:37:49 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0.0338983
+[2022-10-15 22:38:15 pid:16847 tid:7ffff7fe9740  INFO: server.cpp recv 177]>>receive command(size=14): drop table t;
+[2022-10-15 22:38:15 pid:16847 tid:7fffe517f700  WARNNING: stmt.cpp create_stmt 37]>>unknown query command
+[2022-10-15 22:38:15 pid:16847 tid:7fffe517f700  INFO: disk_buffer_pool.cpp close_file 241]>>Successfully close file 10:./miniob/db/sys/t.data.
+[2022-10-15 22:38:15 pid:16847 tid:7fffe517f700  WARNNING: disk_buffer_pool.cpp close_file 672]>>file has not opened: ./miniob/db/sys/t.data
+[2022-10-15 22:38:15 pid:16847 tid:7fffe517f700  INFO: disk_buffer_pool.cpp ~DiskBufferPool 178]>>Exit
+[2022-10-15 22:38:15 pid:16847 tid:7fffe517f700  INFO: disk_buffer_pool.cpp remove_file 634]>>Successfully remove àJ.
+[2022-10-15 22:38:15 pid:16847 tid:7fffe517f700  INFO: table.cpp ~Table 50]>>Table has been closed: t
+[2022-10-15 22:38:49 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:38:49 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0.0169492
+[2022-10-15 22:38:49 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0.0169492
+[2022-10-15 22:38:49 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0.0338983
+[2022-10-15 22:39:49 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:39:49 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0
+[2022-10-15 22:39:49 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0
+[2022-10-15 22:39:49 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0
+[2022-10-15 22:40:49 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:40:49 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0
+[2022-10-15 22:40:49 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0
+[2022-10-15 22:40:49 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0
+[2022-10-15 22:41:49 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:41:49 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0
+[2022-10-15 22:41:49 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0
+[2022-10-15 22:41:49 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0
+[2022-10-15 22:42:49 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:42:49 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0
+[2022-10-15 22:42:49 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0
+[2022-10-15 22:42:49 pid:16847 tid:7fffddffb700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0
+[2022-10-15 22:43:49 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:43:49 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0
+[2022-10-15 22:43:49 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0
+[2022-10-15 22:43:49 pid:16847 tid:7fffdcff9700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0
+[2022-10-15 22:44:48 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>DefaultStorageStage.query:mean:0,tps:0
+[2022-10-15 22:44:48 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.readsocket:mean:0,tps:0
+[2022-10-15 22:44:48 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.sql:mean:0,tps:0
+[2022-10-15 22:44:48 pid:16847 tid:7fffdd7fa700  INFO: log_reporter.cpp report 36]>>SessionStage.writesocket:mean:0,tps:0
