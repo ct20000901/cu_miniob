@@ -618,6 +618,29 @@ RC BufferPoolManager::create_file(const char *file_name)
   return RC::SUCCESS;
 }
 
+RC BufferPoolManager::remove_file(const char *_file_name)
+{
+  RC rc = RC::SUCCESS;
+
+  std::string file_name(_file_name);
+  //首先关闭文件
+  rc = close_file(_file_name);
+  if (rc != RC::SUCCESS){
+    return rc;
+  }
+
+  //再移除文件
+  if(remove(_file_name) == 0){
+    LOG_INFO("Successfully remove %s.", file_name);
+  }else{
+    LOG_ERROR("Fail remove %s.", file_name);
+    return RC::BUFFERPOOL_FILEERR;
+  }
+
+  return rc;
+}
+
+
 RC BufferPoolManager::open_file(const char *_file_name, DiskBufferPool *& _bp)
 {
   std::string file_name(_file_name);
