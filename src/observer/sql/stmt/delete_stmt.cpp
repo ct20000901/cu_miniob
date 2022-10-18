@@ -27,14 +27,14 @@ DeleteStmt::~DeleteStmt()
   if (nullptr != filter_stmt_) {
     delete filter_stmt_;
     filter_stmt_ = nullptr;
-  } 
+  }
 }
 
-RC DeleteStmt::create(Db *db, const Deletes &delete_sql, Stmt *&stmt)
+RC DeleteStmt::create(Db *db, Deletes &delete_sql, Stmt *&stmt)
 {
   const char *table_name = delete_sql.relation_name;
   if (nullptr == db || nullptr == table_name) {
-    LOG_WARN("invalid argument. db=%p, table_name=%p", 
+    LOG_WARN("invalid argument. db=%p, table_name=%p",
              db, table_name);
     return RC::INVALID_ARGUMENT;
   }

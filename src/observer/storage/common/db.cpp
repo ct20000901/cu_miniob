@@ -90,7 +90,13 @@ RC Db::drop_table(const char *table_name)
   if (table == nullptr){
     return rc;
   }
+
   rc = table->drop();
+  if (rc != RC::SUCCESS)
+  {
+    LOG_ERROR("Failed to drop table %s.", table_name);
+    return rc;
+  }
 
   opened_tables_.erase(table_name);
   delete table;

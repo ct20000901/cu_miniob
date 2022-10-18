@@ -45,6 +45,9 @@ public:
    */
   RC create(const char *path, const char *name, const char *base_dir, int attribute_count, const AttrInfo attributes[]);
 
+  /**
+  * 删除一个表
+  */
   RC drop();
 
   /**

@@ -9,10 +9,11 @@ MERCHANTABILITY OR FIT FOR A PARTICULAR PURPOSE.
 See the Mulan PSL v2 for more details. */
 
 //
-// Created by Meiyi 
+// Created by Meiyi
 //
 
 #include <mutex>
+#include <stdint.h>
 #include "sql/parser/parse.h"
 #include "rc.h"
 #include "common/log/log.h"
@@ -57,6 +58,13 @@ void value_init_string(Value *value, const char *v)
   value->type = CHARS;
   value->data = strdup(v);
 }
+
+void value_init_date(Value *value,int32_t date){
+  value->type = DATES;
+  value->data = malloc(sizeof(date));
+  memcpy(value->data, &date, sizeof(date));
+}
+
 void value_destroy(Value *value)
 {
   value->type = UNDEFINED;
@@ -313,6 +321,7 @@ void load_data_destroy(LoadData *load_data)
   load_data->relation_name = nullptr;
   load_data->file_name = nullptr;
 }
+
 
 void query_init(Query *query)
 {

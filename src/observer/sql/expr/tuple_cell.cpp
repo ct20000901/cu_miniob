@@ -17,28 +17,33 @@ See the Mulan PSL v2 for more details. */
 #include "common/log/log.h"
 #include "util/comparator.h"
 #include "util/util.h"
+#include "util/date.h"
 
 void TupleCell::to_string(std::ostream &os) const
 {
   switch (attr_type_) {
-  case INTS: {
-    os << *(int *)data_;
-  } break;
-  case FLOATS: {
-    float v = *(float *)data_;
-    os << double2string(v);
-  } break;
-  case CHARS: {
-    for (int i = 0; i < length_; i++) {
-      if (data_[i] == '\0') {
-        break;
+    case INTS: {
+      os << *(int *)data_;
+    } break;
+    case FLOATS: {
+      float v = *(float *)data_;
+      os << double2string(v);
+    } break;
+    case CHARS: {
+      for (int i = 0; i < length_; i++) {
+        if (data_[i] == '\0') {
+          break;
+        }
+        os << data_[i];
       }
-      os << data_[i];
-    }
-  } break;
-  default: {
-    LOG_WARN("unsupported attr type: %d", attr_type_);
-  } break;
+    } break;
+    case DATES: {
+      int32_t i = * (int32_t *)data_;
+      os << date_to_string(i);
+    } break;
+    default: {
+      LOG_WARN("unsupported attr type: %d", attr_type_);
+    } break;
   }
 }
 
@@ -46,12 +51,15 @@ int TupleCell::compare(const TupleCell &other) const
 {
   if (this->attr_type_ == other.attr_type_) {
     switch (this->attr_type_) {
-    case INTS: return compare_int(this->data_, other.data_);
-    case FLOATS: return compare_float(this->data_, other.data_);
-    case CHARS: return compare_string(this->data_, this->length_, other.data_, other.length_);
-    default: {
-      LOG_WARN("unsupported type: %d", this->attr_type_);
-    }
+      case INTS:
+        return compare_int(this->data_, other.data_);
+      case FLOATS:
+        return compare_float(this->data_, other.data_);
+      case CHARS:
+        return compare_string(this->data_, this->length_, other.data_, other.length_);
+      default: {
+        LOG_WARN("unsupported type: %d", this->attr_type_);
+      }
     }
   } else if (this->attr_type_ == INTS && other.attr_type_ == FLOATS) {
     float this_data = *(int *)data_;
@@ -61,5 +69,5 @@ int TupleCell::compare(const TupleCell &other) const
     return compare_float(data_, &other_data);
   }
   LOG_WARN("not supported");
-  return -1; // TODO return rc?
+  return -1;  // TODO return rc?
 }

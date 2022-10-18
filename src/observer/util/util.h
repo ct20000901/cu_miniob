@@ -15,5 +15,7 @@ See the Mulan PSL v2 for more details. */
 #pragma once
 
 #include <string>
+#include "rc.h"
 
 std::string double2string(double v);
+RC convertValue2Field(Value *value, AttrType field_type);

@@ -129,12 +129,12 @@ RC Table::drop(){
   //删除MetaFile
   remove(meta_file.c_str());
 
+  //删除索引
   for(auto index : indexes_){
     std::string index_file = table_index_file(base_dir_.c_str(), name(),(*index).index_meta().name());
     bpm.remove_file(index_file.c_str());
     delete index;
   }
-  //删除索引
 
   return rc;
 }

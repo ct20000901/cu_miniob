@@ -16,6 +16,7 @@ See the Mulan PSL v2 for more details. */
 #define __OBSERVER_SQL_PARSER_PARSE_DEFS_H__
 
 #include <stddef.h>
+#include <stdint.h>
 
 #define MAX_NUM 20
 #define MAX_REL_NAME 20
@@ -44,8 +45,9 @@ typedef enum
 {
   UNDEFINED,
   CHARS,
+  DATES,
   INTS,
-  FLOATS
+  FLOATS,
 } AttrType;
 
 //属性值
@@ -189,6 +191,7 @@ void relation_attr_destroy(RelAttr *relation_attr);
 void value_init_integer(Value *value, int v);
 void value_init_float(Value *value, float v);
 void value_init_string(Value *value, const char *v);
+void value_init_date(Value *value,int32_t date);
 void value_destroy(Value *value);
 
 void condition_init(Condition *condition, CompOp comp, int left_is_attr, RelAttr *left_attr, Value *left_value,
