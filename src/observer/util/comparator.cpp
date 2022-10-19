@@ -113,11 +113,12 @@ RC compare_type(const void *arg1, AttrType attr_type1, const void *arg2, AttrTyp
           return rc;
         }
       } else if (attr_type2 == DATES) {
-        int i = (*(int32_t *)arg1) - r_value;
+        r_value = *(int32_t *)arg2;
       } else {
         rc = RC::SCHEMA_FIELD_TYPE_MISMATCH;
         break;
       }
+      i = (*(int32_t *)arg1) - r_value;
       if (i > 0) {
         *cmp = 1;
       }
@@ -127,7 +128,7 @@ RC compare_type(const void *arg1, AttrType attr_type1, const void *arg2, AttrTyp
       if (i < 0) {
         *cmp = -1;
       }
-    }
+    } break;
 
     default:
       rc = RC::SCHEMA_FIELD_TYPE_MISMATCH;

@@ -38,9 +38,9 @@
 #ifndef YY_YY_YACC_SQL_TAB_H_INCLUDED
 # define YY_YY_YACC_SQL_TAB_H_INCLUDED
 /* Debug traces.  */
-// #ifndef YYDEBUG
-// # define YYDEBUG 0
-// #endif
+#ifndef YYDEBUG
+# define YYDEBUG 0
+#endif
 #if YYDEBUG
 extern int yydebug;
 #endif

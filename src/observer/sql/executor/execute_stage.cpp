@@ -179,7 +179,11 @@ void ExecuteStage::handle_request(common::StageEvent *event)
     } break;
     case SCF_SYNC: {
       RC rc = DefaultHandler::get_default().sync();
-      session_event->set_response(strrc(rc));
+      const char* str_rc = strrc(rc);
+      char s[strlen(str_rc)+1];
+      strcpy(s,str_rc);
+      strcat(s,"\n");
+      session_event->set_response(s);
     } break;
     case SCF_BEGIN: {
       session_event->set_response("SUCCESS\n");
@@ -187,14 +191,22 @@ void ExecuteStage::handle_request(common::StageEvent *event)
     case SCF_COMMIT: {
       Trx *trx = session->current_trx();
       RC rc = trx->commit();
+      const char* str_rc = strrc(rc);
+      char s[strlen(str_rc)+1];
+      strcpy(s,str_rc);
+      strcat(s,"\n");
       session->set_trx_multi_operation_mode(false);
-      session_event->set_response(strrc(rc));
+      session_event->set_response(s);
     } break;
     case SCF_ROLLBACK: {
       Trx *trx = session_event->get_client()->session->current_trx();
       RC rc = trx->rollback();
+      const char* str_rc = strrc(rc);
+      char s[strlen(str_rc)+1];
+      strcpy(s,str_rc);
+      strcat(s,"\n");
       session->set_trx_multi_operation_mode(false);
-      session_event->set_response(strrc(rc));
+      session_event->set_response(s);
     } break;
     case SCF_EXIT: {
       // do nothing

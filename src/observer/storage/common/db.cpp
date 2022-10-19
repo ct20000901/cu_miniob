@@ -88,6 +88,7 @@ RC Db::drop_table(const char *table_name)
   std::string table_file_path = table_meta_file(path_.c_str(), table_name);
   Table *table = find_table(table_name);
   if (table == nullptr){
+    rc = RC::SCHEMA_DB_EXIST;
     return rc;
   }
 
