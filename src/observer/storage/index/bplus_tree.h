@@ -32,10 +32,9 @@ See the Mulan PSL v2 for more details. */
 
 class AttrComparator {
 public:
-  void init(AttrType left_type, AttrType right_type, int length)
+  void init(AttrType type, int length)
   {
-    left_attr_type_ = left_type;
-    right_attr_type_ = right_type;
+    attr_type_ = type;
     attr_length_ = length;
   }
 
@@ -47,21 +46,20 @@ public:
   int operator()(const char *v1, const char *v2) const
   {
     int cmp;
-    compare_type(v1, left_attr_type_, v2, right_attr_type_, &cmp);
+    compare_type(v1, attr_type_, v2, attr_type_, &cmp);
     return cmp;
   }
 
 private:
-  AttrType left_attr_type_;
-  AttrType right_attr_type_;
+  AttrType attr_type_;
   int attr_length_;
 };
 
 class KeyComparator {
 public:
-  void init(AttrType left_type, AttrType right_type, int length)
+  void init(AttrType type, int length)
   {
-    attr_comparator_.init(left_type, right_type, length);
+    attr_comparator_.init(type, length);
   }
 
   const AttrComparator &attr_comparator() const
