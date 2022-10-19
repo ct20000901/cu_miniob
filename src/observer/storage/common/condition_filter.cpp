@@ -13,6 +13,7 @@ See the Mulan PSL v2 for more details. */
 //
 
 #include <stddef.h>
+#include <math.h>
 #include "condition_filter.h"
 #include "storage/record/record_manager.h"
 #include "common/log/log.h"
@@ -170,6 +171,7 @@ bool DefaultConditionFilter::filter(const Record &rec) const
   //   default: {
   //   }
   // }
+
 
   switch (comp_op_) {
     case EQUAL_TO:

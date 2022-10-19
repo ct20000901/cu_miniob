@@ -44,6 +44,7 @@ See the Mulan PSL v2 for more details. */
 #include "storage/default/default_handler.h"
 #include "storage/common/condition_filter.h"
 #include "storage/trx/trx.h"
+#include "storage/clog/clog.h"
 
 using namespace common;
 
@@ -178,26 +179,22 @@ void ExecuteStage::handle_request(common::StageEvent *event)
       default_storage_stage_->handle_event(event);
     } break;
     case SCF_SYNC: {
+      /*
       RC rc = DefaultHandler::get_default().sync();
-      const char* str_rc = strrc(rc);
-      char s[strlen(str_rc)+1];
-      strcpy(s,str_rc);
-      strcat(s,"\n");
-      session_event->set_response(s);
+      */
     } break;
     case SCF_BEGIN: {
+      do_begin(sql_event);
+      /*
       session_event->set_response("SUCCESS\n");
+      */
     } break;
     case SCF_COMMIT: {
-      Trx *trx = session->current_trx();
-      RC rc = trx->commit();
-      const char* str_rc = strrc(rc);
-      char s[strlen(str_rc)+1];
-      strcpy(s,str_rc);
-      strcat(s,"\n");
-      session->set_trx_multi_operation_mode(false);
-      session_event->set_response(s);
+      do_commit(sql_event);
     } break;
+    case SCF_CLOG_SYNC: {
+      do_clog_sync(sql_event);
+    }
     case SCF_ROLLBACK: {
       Trx *trx = session_event->get_client()->session->current_trx();
       RC rc = trx->rollback();
@@ -549,6 +546,10 @@ RC ExecuteStage::do_insert(SQLStageEvent *sql_event)
 {
   Stmt *stmt = sql_event->stmt();
   SessionEvent *session_event = sql_event->session_event();
+  Session *session = session_event->session();
+  Db *db = session->get_current_db();
+  Trx *trx = session->current_trx();
+  CLogManager *clog_manager = db->get_clog_manager();
 
   if (stmt == nullptr) {
     LOG_WARN("cannot find statement");
@@ -556,11 +557,29 @@ RC ExecuteStage::do_insert(SQLStageEvent *sql_event)
   }
 
   InsertStmt *insert_stmt = (InsertStmt *)stmt;
-
   Table *table = insert_stmt->table();
-  RC rc = table->insert_record(nullptr, insert_stmt->value_amount(), insert_stmt->values());
+
+  RC rc = table->insert_record(trx, insert_stmt->value_amount(), insert_stmt->values());
   if (rc == RC::SUCCESS) {
-    session_event->set_response("SUCCESS\n");
+    if (!session->is_trx_multi_operation_mode()) {
+      CLogRecord *clog_record = nullptr;
+      rc = clog_manager->clog_gen_record(CLogType::REDO_MTR_COMMIT, trx->get_current_id(), clog_record);
+      if (rc != RC::SUCCESS || clog_record == nullptr) {
+        session_event->set_response("FAILURE\n");
+        return rc;
+      }
+
+      rc = clog_manager->clog_append_record(clog_record);
+      if (rc != RC::SUCCESS) {
+        session_event->set_response("FAILURE\n");
+        return rc;
+      }
+
+      trx->next_current_id();
+      session_event->set_response("SUCCESS\n");
+    } else {
+      session_event->set_response("SUCCESS\n");
+    }
   } else {
     session_event->set_response("FAILURE\n");
   }
@@ -571,6 +590,10 @@ RC ExecuteStage::do_delete(SQLStageEvent *sql_event)
 {
   Stmt *stmt = sql_event->stmt();
   SessionEvent *session_event = sql_event->session_event();
+  Session *session = session_event->session();
+  Db *db = session->get_current_db();
+  Trx *trx = session->current_trx();
+  CLogManager *clog_manager = db->get_clog_manager();
 
   if (stmt == nullptr) {
     LOG_WARN("cannot find statement");
@@ -581,7 +604,7 @@ RC ExecuteStage::do_delete(SQLStageEvent *sql_event)
   TableScanOperator scan_oper(delete_stmt->table());
   PredicateOperator pred_oper(delete_stmt->filter_stmt());
   pred_oper.add_child(&scan_oper);
-  DeleteOperator delete_oper(delete_stmt);
+  DeleteOperator delete_oper(delete_stmt, trx);
   delete_oper.add_child(&pred_oper);
 
   RC rc = delete_oper.open();
@@ -589,6 +612,98 @@ RC ExecuteStage::do_delete(SQLStageEvent *sql_event)
     session_event->set_response("FAILURE\n");
   } else {
     session_event->set_response("SUCCESS\n");
+    if (!session->is_trx_multi_operation_mode()) {
+      CLogRecord *clog_record = nullptr;
+      rc = clog_manager->clog_gen_record(CLogType::REDO_MTR_COMMIT, trx->get_current_id(), clog_record);
+      if (rc != RC::SUCCESS || clog_record == nullptr) {
+        session_event->set_response("FAILURE\n");
+        return rc;
+      }
+
+      rc = clog_manager->clog_append_record(clog_record);
+      if (rc != RC::SUCCESS) {
+        session_event->set_response("FAILURE\n");
+        return rc;
+      }
+
+      trx->next_current_id();
+      session_event->set_response("SUCCESS\n");
+    }
   }
+  return rc;
+}
+
+RC ExecuteStage::do_begin(SQLStageEvent *sql_event)
+{
+  RC rc = RC::SUCCESS;
+  SessionEvent *session_event = sql_event->session_event();
+  Session *session = session_event->session();
+  Db *db = session->get_current_db();
+  Trx *trx = session->current_trx();
+  CLogManager *clog_manager = db->get_clog_manager();
+
+  session->set_trx_multi_operation_mode(true);
+
+  CLogRecord *clog_record = nullptr;
+  rc = clog_manager->clog_gen_record(CLogType::REDO_MTR_BEGIN, trx->get_current_id(), clog_record);
+  if (rc != RC::SUCCESS || clog_record == nullptr) {
+    session_event->set_response("FAILURE\n");
+    return rc;
+  }
+
+  rc = clog_manager->clog_append_record(clog_record);
+  if (rc != RC::SUCCESS) {
+    session_event->set_response("FAILURE\n");
+  } else {
+    session_event->set_response("SUCCESS\n");
+  }
+
+  return rc;
+}
+
+RC ExecuteStage::do_commit(SQLStageEvent *sql_event)
+{
+  RC rc = RC::SUCCESS;
+  SessionEvent *session_event = sql_event->session_event();
+  Session *session = session_event->session();
+  Db *db = session->get_current_db();
+  Trx *trx = session->current_trx();
+  CLogManager *clog_manager = db->get_clog_manager();
+
+  session->set_trx_multi_operation_mode(false);
+
+  CLogRecord *clog_record = nullptr;
+  rc = clog_manager->clog_gen_record(CLogType::REDO_MTR_COMMIT, trx->get_current_id(), clog_record);
+  if (rc != RC::SUCCESS || clog_record == nullptr) {
+    session_event->set_response("FAILURE\n");
+    return rc;
+  }
+
+  rc = clog_manager->clog_append_record(clog_record);
+  if (rc != RC::SUCCESS) {
+    session_event->set_response("FAILURE\n");
+  } else {
+    session_event->set_response("SUCCESS\n");
+  }
+
+  trx->next_current_id();
+
+  return rc;
+}
+
+RC ExecuteStage::do_clog_sync(SQLStageEvent *sql_event)
+{
+  RC rc = RC::SUCCESS;
+  SessionEvent *session_event = sql_event->session_event();
+  Db *db = session_event->session()->get_current_db();
+  CLogManager *clog_manager = db->get_clog_manager();
+
+  rc = clog_manager->clog_sync();
+  if (rc != RC::SUCCESS) {
+    session_event->set_response("FAILURE\n");
+  } else {
+    session_event->set_response("SUCCESS\n");
+  }
+
   return rc;
 }

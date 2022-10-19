@@ -1779,6 +1779,7 @@ RC BplusTreeScanner::open(const char *left_user_key, int left_len, bool left_inc
     // lookup 返回的是适合插入的位置，还需要判断一下是否在合适的边界范围内
     if (left_index >= left_node.size()) {  // 超出了当前页，就需要向后移动一个位置
       const PageNum next_page_num = left_node.next_page();
+
       if (next_page_num == BP_INVALID_PAGE_NUM) {  // 这里已经是最后一页，说明当前扫描，没有数据
         return RC::SUCCESS;
       }
