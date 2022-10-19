@@ -14,12 +14,18 @@ See the Mulan PSL v2 for more details. */
 
 #ifndef __OBSERVER_STORAGE_COMMON_CONDITION_FILTER_H_
 #define __OBSERVER_STORAGE_COMMON_CONDITION_FILTER_H_
+#define FIELD_TYPE_COMPARE(left,right) field_type_compare_compatible_table[left-1][right-1]
 
+#include <unordered_map>
 #include "rc.h"
 #include "sql/parser/parse.h"
 
 class Record;
 class Table;
+
+const bool field_type_compare_compatible_table[FLOATS][FLOATS]{
+    {true,false,true,true},{false,false,false,false},{true,false,true,true},{true,false,true,true}
+};
 
 struct ConDesc {
   bool is_attr;     // 是否属性，false 表示是值
@@ -45,7 +51,7 @@ public:
   DefaultConditionFilter();
   virtual ~DefaultConditionFilter();
 
-  RC init(const ConDesc &left, const ConDesc &right, AttrType attr_type, CompOp comp_op);
+  RC init(const ConDesc &left, const ConDesc &right, AttrType left_attr_type, AttrType right_attr_type, CompOp comp_op);
   RC init(Table &table, const Condition &condition);
 
   virtual bool filter(const Record &rec) const;
@@ -66,12 +72,21 @@ public:
     return comp_op_;
   }
 
-  AttrType attr_type() const { return attr_type_; }
+  AttrType left_attr_type() const
+  {
+    return left_attr_type_;
+  }
+
+  AttrType right_attr_type() const
+  {
+    return right_attr_type_;
+  }
 
 private:
   ConDesc left_;
   ConDesc right_;
-  AttrType attr_type_ = UNDEFINED;
+  AttrType left_attr_type_ = UNDEFINED;
+  AttrType right_attr_type_ = UNDEFINED;
   CompOp comp_op_ = NO_OP;
 };
 

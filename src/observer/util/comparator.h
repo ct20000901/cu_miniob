@@ -14,6 +14,10 @@ See the Mulan PSL v2 for more details. */
 
 #pragma once
 
-int compare_int(void *arg1, void *arg2);
-int compare_float(void *arg1, void *arg2);
-int compare_string(void *arg1, int arg1_max_length, void *arg2, int arg2_max_length);
+#include<sql/parser/parse_defs.h>
+#include<rc.h>
+
+int compare_int(const void *arg1,const void *arg2);
+int compare_float(const void *arg1,const void *arg2);
+int compare_string(const void *arg1, int arg1_max_length, const void *arg2, int arg2_max_length);
+RC compare_type(const void *arg1, AttrType attr_type1, const void *arg2, AttrType attr_type2,int* cmp);

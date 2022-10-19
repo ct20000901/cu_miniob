@@ -15,7 +15,9 @@ See the Mulan PSL v2 for more details. */
 #pragma once
 
 #include <string.h>
+#include <stdint.h>
 #include "storage/common/field.h"
+#include "util/date.h"
 #include "sql/expr/tuple_cell.h"
 
 class Tuple;
@@ -28,10 +30,10 @@ enum class ExprType {
 
 class Expression
 {
-public: 
+public:
   Expression() = default;
   virtual ~Expression() = default;
-  
+
   virtual RC get_value(const Tuple &tuple, TupleCell &cell) const = 0;
   virtual ExprType type() const = 0;
 };
@@ -83,6 +85,11 @@ public:
   {
     if (value.type == CHARS) {
       tuple_cell_.set_length(strlen((const char *)value.data));
+    }
+    if (value.type == DATES) {
+      int32_t* date = (int32_t *)malloc(sizeof(int32_t));
+      string_to_date(tuple_cell_.data(),*date);
+      tuple_cell_.set_data((char *)date);
     }
   }
 

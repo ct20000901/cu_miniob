@@ -14,20 +14,22 @@ See the Mulan PSL v2 for more details. */
 
 #include <string.h>
 #include <algorithm>
+#include <stdint.h>
+#include "comparator.h"
 
 const double epsilon = 1E-6;
 
-int compare_int(void *arg1, void *arg2)
+int compare_int(const void *arg1,const void *arg2)
 {
   int v1 = *(int *)arg1;
   int v2 = *(int *)arg2;
   return v1 - v2;
 }
 
-int compare_float(void *arg1, void *arg2)
+int compare_float(const void *arg1,const void *arg2)
 {
-  float v1 = *(float *)arg1; 
-  float v2 = *(float *)arg2; 
+  float v1 = *(float *)arg1;
+  float v2 = *(float *)arg2;
   float cmp = v1 - v2;
   if (cmp > epsilon) {
     return 1;
@@ -38,12 +40,12 @@ int compare_float(void *arg1, void *arg2)
   return 0;
 }
 
-int compare_string(void *arg1, int arg1_max_length, void *arg2, int arg2_max_length)
+int compare_string(const void *arg1, int arg1_max_length,const void *arg2, int arg2_max_length)
 {
   const char *s1 = (const char *)arg1;
   const char *s2 = (const char *)arg2;
   int maxlen = std::min(arg1_max_length, arg2_max_length);
-  int result =  strncmp(s1, s2, maxlen);
+  int result = strncmp(s1, s2, maxlen);
   if (0 != result) {
     return result;
   }
@@ -56,4 +58,69 @@ int compare_string(void *arg1, int arg1_max_length, void *arg2, int arg2_max_len
     return 0 - s2[maxlen];
   }
   return 0;
+}
+
+RC compare_type(const void *arg1, AttrType attr_type1,const void *arg2, AttrType attr_type2,int* cmp)
+{
+  RC rc = RC::SUCCESS;
+  switch (attr_type1) {
+    case CHARS: {
+      if (attr_type2 == INTS) {
+        int i1 = atoi((char *)arg1);
+        *cmp = compare_int(&i1, arg2);
+      }
+      if (attr_type2 == FLOATS) {
+        float i1 = atof((char *)arg1);
+        *cmp = compare_float(&i1, arg2);
+      }
+      if (attr_type2 == CHARS) {
+        *cmp = strcmp((char *)arg1, (char *)arg2);
+      }
+    } break;
+    case INTS: {
+      if (attr_type2 == FLOATS) {
+        float i = *(int *)arg1;
+        *cmp = compare_float(&i, arg2);
+      }
+      if (attr_type2 == CHARS) {
+        int i1 = atoi((char *)arg2);
+        *cmp = compare_int(arg1, &i1);
+      }
+      if (attr_type2 == INTS) {
+        *cmp = compare_int(arg1, arg2);
+      }
+    } break;
+    case FLOATS: {
+      if (attr_type2 == INTS) {
+        float i = *(int *)arg2;
+        *cmp = compare_float(arg1, &i);
+      }
+      if (attr_type2 == CHARS) {
+        float i = atof((char *)arg2);
+        *cmp = compare_float(arg1, &i);
+      }
+      if (attr_type2 == FLOATS) {
+        *cmp = compare_float(arg1, arg2);
+      }
+    } break;
+    case DATES: {
+      if (attr_type2 == DATES) {
+        int i = (*(int32_t *)arg1) - (*(int32_t *)arg2);
+        if (i > 0) {
+          *cmp = 1;
+        }
+        if (i == 0) {
+          *cmp = 0;
+        }
+        if (i < 0) {
+          *cmp = -1;
+        }
+      }
+    }
+
+    default:
+      rc = RC::SCHEMA_FIELD_TYPE_MISMATCH;
+      break;
+  }
+  return rc;
 }

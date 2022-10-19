@@ -17,6 +17,7 @@ See the Mulan PSL v2 for more details. */
 #include "storage/record/record_manager.h"
 #include "common/log/log.h"
 #include "storage/common/table.h"
+#include "util/comparator.h"
 
 using namespace common;
 
@@ -38,11 +39,21 @@ DefaultConditionFilter::DefaultConditionFilter()
 DefaultConditionFilter::~DefaultConditionFilter()
 {}
 
-RC DefaultConditionFilter::init(const ConDesc &left, const ConDesc &right, AttrType attr_type, CompOp comp_op)
+RC DefaultConditionFilter::init(
+    const ConDesc &left, const ConDesc &right, AttrType left_attr_type, AttrType right_attr_type, CompOp comp_op)
 {
-  if (attr_type < CHARS || attr_type > FLOATS) {
-    LOG_ERROR("Invalid condition with unsupported attribute type: %d", attr_type);
+  if (left_attr_type < CHARS || left_attr_type > FLOATS || right_attr_type < CHARS || right_attr_type > FLOATS) {
+    LOG_ERROR("Invalid condition with unsupported left_attribute type: %d,right_attribute type: %d",
+        left_attr_type,
+        right_attr_type);
     return RC::INVALID_ARGUMENT;
+  }
+
+  //校验类型
+  if (!FIELD_TYPE_COMPARE(left_attr_type, right_attr_type)) {
+    if (!((left_attr_type == DATES || left_attr_type == DATES) && (left.is_attr ^ right.is_attr))) {
+      return RC::SCHEMA_FIELD_TYPE_MISMATCH;
+    }
   }
 
   if (comp_op < EQUAL_TO || comp_op >= NO_OP) {
@@ -52,7 +63,8 @@ RC DefaultConditionFilter::init(const ConDesc &left, const ConDesc &right, AttrT
 
   left_ = left;
   right_ = right;
-  attr_type_ = attr_type;
+  left_attr_type_ = left_attr_type;
+  right_attr_type_ = right_attr_type;
   comp_op_ = comp_op;
   return RC::SUCCESS;
 }
@@ -109,18 +121,7 @@ RC DefaultConditionFilter::init(Table &table, const Condition &condition)
     right.attr_offset = 0;
   }
 
-  // 校验和转换
-  //  if (!field_type_compare_compatible_table[type_left][type_right]) {
-  //    // 不能比较的两个字段， 要把信息传给客户端
-  //    return RC::SCHEMA_FIELD_TYPE_MISMATCH;
-  //  }
-  // NOTE：这里没有实现不同类型的数据比较，比如整数跟浮点数之间的对比
-  // 但是选手们还是要实现。这个功能在预选赛中会出现
-  if (type_left != type_right) {
-    return RC::SCHEMA_FIELD_TYPE_MISMATCH;
-  }
-
-  return init(left, right, type_left, condition.comp);
+  return init(left, right, type_left, type_right, condition.comp);
 }
 
 bool DefaultConditionFilter::filter(const Record &rec) const
@@ -140,27 +141,35 @@ bool DefaultConditionFilter::filter(const Record &rec) const
     right_value = (char *)right_.value;
   }
 
-  int cmp_result = 0;
-  switch (attr_type_) {
-    case CHARS: {  // 字符串都是定长的，直接比较
-      // 按照C字符串风格来定
-      cmp_result = strcmp(left_value, right_value);
-    } break;
-    case INTS: {
-      // 没有考虑大小端问题
-      // 对int和float，要考虑字节对齐问题,有些平台下直接转换可能会跪
-      int left = *(int *)left_value;
-      int right = *(int *)right_value;
-      cmp_result = left - right;
-    } break;
-    case FLOATS: {
-      float left = *(float *)left_value;
-      float right = *(float *)right_value;
-      cmp_result = (int)(left - right);
-    } break;
-    default: {
-    }
-  }
+  // AttrType attr_type_ = left_attr_type_ > right_attr_type_ ? left_attr_type_ : right_attr_type_;
+
+  int cmp_result;
+  compare_type(left_value, left_attr_type_, right_value, right_attr_type_, &cmp_result);
+  // switch (attr_type_) {
+  //   case CHARS: {  // 字符串都是定长的，直接比较
+  //     // 按照C字符串风格来定
+  //     cmp_result = strcmp(left_value, right_value);
+  //   } break;
+  //   case INTS: {
+  //     // 没有考虑大小端问题
+  //     // 对int和float，要考虑字节对齐问题,有些平台下直接转换可能会跪
+  //     int left = *(int *)left_value;
+  //     int right = *(int *)right_value;
+  //     cmp_result = left - right;
+  //   } break;
+  //   case FLOATS: {
+  //     float left = *(float *)left_value;
+  //     float right = *(float *)right_value;
+  //     cmp_result = (int)(left - right);
+  //   } break;
+  //   case DATES: {
+  //     int32_t left = *(int32_t *)left_value;
+  //     int32_t right = *(int32_t *)right_value;
+  //     cmp_result = (int)(left - right);
+  //   } break;
+  //   default: {
+  //   }
+  // }
 
   switch (comp_op_) {
     case EQUAL_TO:

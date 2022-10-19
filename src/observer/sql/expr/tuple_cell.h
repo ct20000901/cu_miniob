@@ -20,9 +20,9 @@ See the Mulan PSL v2 for more details. */
 
 class TupleCell
 {
-public: 
+public:
   TupleCell() = default;
-  
+
   TupleCell(FieldMeta *meta, char *data)
     : TupleCell(meta->type(), data)
   {}
