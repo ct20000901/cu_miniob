@@ -89,7 +89,7 @@ RC Db::drop_table(const char *table_name)
   RC rc = RC::SUCCESS;
   if (opened_tables_.count(table_name) == 0){
     LOG_WARN("%s is not exist.", table_name);
-    return rc;
+    return RC::SCHEMA_DB_NOT_EXIST;
   }
   sync();
 
@@ -97,6 +97,7 @@ RC Db::drop_table(const char *table_name)
   Table *table = find_table(table_name);
   if (table == nullptr){
     rc = RC::SCHEMA_DB_NOT_EXIST;
+    LOG_ERROR("Failed to drop table %s.", table_name);
     return rc;
   }
 
