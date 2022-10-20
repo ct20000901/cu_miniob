@@ -203,6 +203,7 @@ RC DiskBufferPool::open_file(const char *file_name)
   hdr_frame_->file_desc_ = fd;
   hdr_frame_->pin_count_ = 1;
   hdr_frame_->acc_time_ = current_time();
+
   if ((rc = load_page(BP_HEADER_PAGE, hdr_frame_)) != RC::SUCCESS) {
     LOG_ERROR("Failed to load first page of %s, due to %s.", file_name, strerror(errno));
     hdr_frame_->pin_count_ = 0;
@@ -583,7 +584,7 @@ BufferPoolManager::~BufferPoolManager()
 {
   std::unordered_map<std::string, DiskBufferPool *> tmp_bps;
   tmp_bps.swap(buffer_pools_);
-  
+
   for (auto &iter : tmp_bps) {
     delete iter.second;
   }
@@ -660,7 +661,7 @@ RC BufferPoolManager::remove_file(const char *_file_name)
 RC BufferPoolManager::open_file(const char *_file_name, DiskBufferPool *& _bp)
 {
   std::string file_name(_file_name);
-  
+
   if (buffer_pools_.find(file_name) != buffer_pools_.end()) {
     LOG_WARN("file already opened. file name=%s", _file_name);
     return RC::BUFFERPOOL_OPEN;

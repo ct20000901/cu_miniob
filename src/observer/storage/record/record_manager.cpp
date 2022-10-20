@@ -150,7 +150,7 @@ RC RecordPageHandler::init_empty_page(DiskBufferPool &buffer_pool, PageNum page_
   bitmap_ = frame_->data() + page_fix_size();
 
   memset(bitmap_, 0, page_bitmap_size(page_header_->record_capacity));
-  
+
   if ((ret = buffer_pool.flush_page(*frame_)) != RC::SUCCESS) {
     LOG_ERROR("Failed to flush page header %d:%d.", page_num);
     return ret;
@@ -555,7 +555,7 @@ bool RecordFileScanner::has_next()
 RC RecordFileScanner::next(Record &record)
 {
   record = next_record_;
-  
+
   RC rc = fetch_next_record();
   if (rc == RC::RECORD_EOF) {
     rc = RC::SUCCESS;

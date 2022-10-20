@@ -27,6 +27,7 @@ RC TableScanOperator::open()
 
 RC TableScanOperator::next()
 {
+  // table_->get_record_scanner(record_scanner_);
   if (!record_scanner_.has_next()) {
     return RC::RECORD_EOF;
   }

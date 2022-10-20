@@ -122,6 +122,7 @@ RC DefaultConditionFilter::init(Table &table, const Condition &condition)
     right.attr_offset = 0;
   }
 
+  
   return init(left, right, type_left, type_right, condition.comp);
 }
 
