@@ -19,3 +19,4 @@ See the Mulan PSL v2 for more details. */
 
 std::string double2string(double v);
 RC convertValue2Field(Value *value, AttrType field_type);
+RC convertValue(Value *value1, Value *value2);

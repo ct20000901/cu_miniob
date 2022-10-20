@@ -105,7 +105,7 @@ RC convertValue2Field(Value *value, AttrType field_type)
   return rc;
 }
 
-RC convertValue2Field(Value *value1, Value *value2)
+RC convertValue(Value *value1, Value *value2)
 {
   RC rc = RC::SUCCESS;
   const AttrType value_type1 = value1->type;
@@ -118,27 +118,38 @@ RC convertValue2Field(Value *value1, Value *value2)
         return rc;
       }
       int32_t date = -1;
-      rc = string_to_date((char *)(value->data), date);
+      rc = string_to_date((char *)(value2->data), date);
       if (rc != RC::SUCCESS) {
         // LOG_WARN("XXX");  // TODO log correct log
         return rc;
       }
-      value_destroy(value);
-      value_init_date(value, date);
+      value_destroy(value2);
+      value_init_date(value2, date);
       break;
     }
     // 转换字符串
     case CHARS: {
-      std::stringstream ss;
-      char *chars;
-      if (value_type2 == INTS) {
-        ss << abs(*(int *)(value1->data));
-      } else if (value_type2 == FLOATS) {
-        ss << fabs(*(float *)(value1->data));
-      }
-      value_destroy(value1);
-      value_init_string(value1, ss.str().c_str());
-      break;
+      // if (value_type2 == INTS || value_type2 == FLOATS) {
+      //   std::stringstream ss;
+      //   char *chars;
+      //   if (value_type2 == INTS) {
+      //     ss << abs(*(int *)(value1->data));
+      //   } else if (value_type2 == FLOATS) {
+      //     ss << fabs(*(float *)(value1->data));
+      //   }
+      //   value_destroy(value1);
+      //   value_init_string(value1, ss.str().c_str());
+      // } else if (value_type2 == DATES) {
+      //   int32_t date = -1;
+      //   rc = string_to_date((char *)(value1->data), date);
+      //   if (rc != RC::SUCCESS) {
+      //     // LOG_WARN("XXX");  // TODO log correct log
+      //     return rc;
+      //   }
+      //   value_destroy(value1);
+      //   value_init_date(value1, date);
+      // }
+      // break;
     }
     //转换整数
     case INTS: {
@@ -151,6 +162,8 @@ RC convertValue2Field(Value *value1, Value *value2)
         float res = (float)*(int *)(value1->data);
         value_destroy(value1);
         value_init_float(value1, res);
+      } else {
+        rc = RC::SCHEMA_FIELD_TYPE_MISMATCH;
       }
       break;
     }
@@ -158,13 +171,13 @@ RC convertValue2Field(Value *value1, Value *value2)
     case FLOATS: {
       if (value_type2 == CHARS || value_type2 == INTS) {
         float res;
-        if (value_type == CHARS) {
-          res = atof((char *)(value->data));
-        } else if (value_type == INTS) {
-          res = *(float *)(value->data);
+        if (value_type2 == CHARS) {
+          res = atof((char *)(value2->data));
+        } else if (value_type2 == INTS) {
+          res = *(float *)(value2->data);
         }
-        value_destroy(value);
-        value_init_float(value, res);
+        value_destroy(value2);
+        value_init_float(value2, res);
       }
       break;
     }

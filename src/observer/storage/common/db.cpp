@@ -96,7 +96,7 @@ RC Db::drop_table(const char *table_name)
   std::string table_file_path = table_meta_file(path_.c_str(), table_name);
   Table *table = find_table(table_name);
   if (table == nullptr){
-    rc = RC::SCHEMA_DB_EXIST;
+    rc = RC::SCHEMA_DB_NOT_EXIST;
     return rc;
   }
 
@@ -238,7 +238,7 @@ RC Db::recover()
         LOG_ERROR("Failed to recover. rc=%d:%s", rc, strrc(rc));
         break;
       }
-      
+
       if (max_trx_id < clog_record->get_trx_id()) {
         max_trx_id = clog_record->get_trx_id();
       }

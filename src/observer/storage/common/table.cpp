@@ -127,17 +127,11 @@ RC Table::drop()
   BufferPoolManager &bpm = BufferPoolManager::instance();
   std::string data_file = table_data_file(base_dir_.c_str(), name());
   bpm.remove_file(data_file.c_str());
+  data_buffer_pool_ = nullptr;
 
   std::string meta_file = table_meta_file(base_dir_.c_str(), name());
   //删除MetaFile
   remove(meta_file.c_str());
-
-  //删除索引
-  for (auto index : indexes_) {
-    std::string index_file = table_index_file(base_dir_.c_str(), name(), (*index).index_meta().name());
-    bpm.remove_file(index_file.c_str());
-    delete index;
-  }
 
   return rc;
 }
